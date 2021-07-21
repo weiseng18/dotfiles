@@ -2,4 +2,11 @@
 
 # force dunst to restart, uses new dunstrc
 killall dunst
-notify-send "Title" "Some content"
+
+# specify $1 to set custom urgency level
+URGENCY="normal"
+if [ ! -z $1 ]; then
+  URGENCY=$1
+fi
+
+notify-send -u $URGENCY "Title" "Some content"
