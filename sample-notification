@@ -1,7 +1,11 @@
 #! /bin/bash
 
 # force dunst to restart, uses new dunstrc
-killall dunst
+# only if there is an existing dunst
+if [ $(ps aux | grep -c dunst) -ge 2 ]; then
+  echo "Killing active dunst"
+  killall dunst
+fi
 
 # specify $1 to set custom urgency level
 URGENCY="normal"
