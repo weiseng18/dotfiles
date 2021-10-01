@@ -1,0 +1,6 @@
+% misc
+
+# Created a decrypted copy of a password-locked PDF
+qpdf --password=<password> --decrypt <encrypted-file-name> <decrypted-file-name>
+
+$ encrypted-file-name: ls
