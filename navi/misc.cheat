@@ -4,3 +4,16 @@
 qpdf --password=<password> --decrypt <encrypted-file-name> <decrypted-file-name>
 
 $ encrypted-file-name: ls
+
+# Trim a video file (with re-encoding)
+ffmpeg -ss <start-time> -i <input-file> -to <end-time> -copyts cut.mp4
+
+$ input-file: ls
+
+# Trim a video file (without re-encoding, faster)
+ffmpeg -ss <start-time> -i <input-file> -to <end-time> -c copy -copyts cut.mp4
+
+$ input-file: ls
+
+# Screen record external monitor
+ffmpeg -f x11grab  -s hd1080 -r 25 -i :1.0 -qscale 0 <mp4-file-name>
