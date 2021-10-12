@@ -1,0 +1,7 @@
+% security
+
+# Find lines with unreadable characters within a file
+grep -axv '.*' <file-name>
+
+# Remove non UTF-8 characters from a file
+iconv -f utf-8 -t utf-8 -c <orig-name> > <new-name>

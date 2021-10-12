@@ -16,7 +16,7 @@ ffmpeg -ss <start-time> -i <input-file> -to <end-time> -c copy -copyts cut.mp4
 $ input-file: ls
 
 # Screen record external monitor
-ffmpeg -f x11grab  -s hd1080 -r 25 -i :1.0 -qscale 0 <mp4-file-name>
+ffmpeg -f x11grab  -s hd1080 -r 15 -i :1 -qscale 0 <mp4-file-name>
 
 # Get size of file/folder
 du -sh <file-name>
@@ -25,3 +25,8 @@ $ file-name: ls -a
 
 # Symlink
 ln -s <target-file> <symlink-location>
+
+# Get properties of a window (click to activate)
+xprop | awk '
+	/^WM_CLASS/{sub(/.* =/, "instance:"); sub(/,/, "\nclass:"); print}
+	/^WM_NAME/{sub(/.* =/, "title:"); print}'
